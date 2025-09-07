@@ -1,4 +1,10 @@
 import ClientDomainContent from "@/components/ClientDomainContent";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'ohmyroot.com',
+
+}
 
 export default function Home() {
   return (
