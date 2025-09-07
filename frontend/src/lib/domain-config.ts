@@ -30,14 +30,14 @@ export const domainConfigs: Record<string, DomainConfig> = {
     }
   },
   'localhost:3000': {
-    name: 'Development (3000)',
+    name: '/root',
     social: {
       telegram: 'https://arturboyun.t.me/',
       instagram: 'https://www.instagram.com/artur_boyun?igsh=MXdqamcxcGExMHNjdw%3D%3D&utm_source=qr'
     }
   },
   'localhost:3001': {
-    name: 'Development (3001)',
+    name: '/root',
     social: {
       telegram: 'https://arturboyun.t.me/',
       instagram: 'https://www.instagram.com/artur_boyun?igsh=MXdqamcxcGExMHNjdw%3D%3D&utm_source=qr'

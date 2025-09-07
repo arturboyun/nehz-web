@@ -1,19 +1,42 @@
+"use client";
 
-
-import { headers } from 'next/headers';
-import { getDomainConfig } from '@/lib/domain-config';
+import { useEffect, useState } from "react";
+import { getDomainConfig, DomainConfig } from "@/lib/domain-config";
 import Image from "next/image";
-import Title from '@/components/title';
+import Title from "@/components/title";
 
-export default async function ServerDomainContent() {
-  const headersList = await headers();
-  const host = headersList.get('host') || 'localhost:3000';
-  const config = getDomainConfig(host);
+export default function ClientDomainContent() {
+  const [config, setConfig] = useState<DomainConfig | null>(null);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname + (window.location.port ? `:${window.location.port}` : '');
+      const domainConfig = getDomainConfig(hostname);
+      setConfig(domainConfig);
+    }
+  }, []);
+
+  if (!config) {
+    // Показываем загрузку
+    return (
+      <div className="flex flex-col gap-[32px] items-center sm:items-start">
+        <div className="flex flex-col items-center sm:items-start gap-4">
+          <div className="animate-pulse bg-gray-300 rounded h-[38px] w-[180px]"></div>
+          <div className="animate-pulse bg-gray-300 rounded h-8 w-48"></div>
+        </div>
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <div className="animate-pulse bg-gray-300 rounded-full h-10 sm:h-12 w-32"></div>
+          <div className="animate-pulse bg-gray-300 rounded-full h-10 sm:h-12 w-32"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex flex-col gap-[24]px items-center sm:items-start">
-      <Title config={config} />
+    <div className="flex flex-col gap-[32px] items-center sm:items-start">
+      <div className="flex flex-col items-center sm:items-start gap-4">
+        <Title config={config} />
+      </div>
 
       <div className="flex gap-4 items-center flex-col sm:flex-row">
         {config.social?.telegram && (
