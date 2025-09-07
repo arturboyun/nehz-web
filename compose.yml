@@ -3,5 +3,5 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.bun
-    ports:
-      - "3001:3001"
+    expose:
+      - 3000
