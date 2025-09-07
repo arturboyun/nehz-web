@@ -5,3 +5,22 @@ services:
       dockerfile: Dockerfile.bun
     expose:
       - 3000
+    labels:
+      - traefik.swarm.network=dokploy-network
+      - traefik.docker.network=dokploy-network
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-web.rule=Host(`nehz-web.botsforge.dev`)
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-web.entrypoints=web
+      - traefik.http.services.compose-nehz-web-adrgdt-1-web.loadbalancer.server.port=3000
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-web.service=compose-nehz-web-adrgdt-1-web
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-web.middlewares=redirect-to-https@file
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-websecure.rule=Host(`nehz-web.botsforge.dev`)
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-websecure.entrypoints=websecure
+      - traefik.http.services.compose-nehz-web-adrgdt-1-websecure.loadbalancer.server.port=3000
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-websecure.service=compose-nehz-web-adrgdt-1-websecure
+      - traefik.http.routers.compose-nehz-web-adrgdt-1-websecure.tls.certresolver=letsencrypt
+      - traefik.enable=true
+    networks:
+      - dokploy-network
+networks:
+  dokploy-network:
+    external: true
