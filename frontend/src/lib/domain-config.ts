@@ -8,7 +8,14 @@ export interface DomainConfig {
 }
 
 export const domainConfigs: Record<string, DomainConfig> = {
-  'arturboyun.com': {
+  'botsforge.dev': {
+    name: 'ARTUR BOYUN',
+    social: {
+      telegram: 'https://arturboyun.t.me/',
+      instagram: 'https://www.instagram.com/artur_boyun?igsh=MXdqamcxcGExMHNjdw%3D%3D&utm_source=qr'
+    }
+  },
+  'nehz.botsforge.dev': {
     name: 'ARTUR BOYUN',
     social: {
       telegram: 'https://arturboyun.t.me/',
