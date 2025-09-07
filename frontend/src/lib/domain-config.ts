@@ -23,7 +23,7 @@ export const domainConfigs: Record<string, DomainConfig> = {
     }
   },
   'ohmyroot.com': {
-    name: 'OHMYROOT.COM',
+    name: '/root',
     social: {
       telegram: 'https://ohmyroot.t.me/',
     //   instagram: 'https://www.instagram.com/artur_boyun?igsh=MXdqamcxcGExMHNjdw%3D%3D&utm_source=qr'

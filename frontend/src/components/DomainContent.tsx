@@ -10,14 +10,7 @@ export default async function ServerDomainContent() {
   return (
     <div className="flex flex-col gap-[32px] items-center sm:items-start">
       <div className="flex flex-col items-center sm:items-start gap-4">
-        {/* <Image
-          src={config.logo || "/nehz.svg"}
-          alt={`${config.name} logo`}
-          width={180}
-          height={38}
-          priority
-        /> */}
-        <h1 className="text-4xl font-bold text-center sm:text-left">
+        <h1 className="text-3xl font-bold text-center sm:text-left">
           {config.name}
         </h1>
       </div>
