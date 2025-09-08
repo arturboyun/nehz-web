@@ -49,7 +49,7 @@ export default function Title({ config }: { config: { name: string } }) {
 
   return (
 
-    <div className="flex flex-col items-center sm:items-start gap-4" ref={boundsRef}>
+    <div className="flex flex-col items-center sm:items-start gap-4 pl-0" ref={boundsRef}>
       <h1
         className="text-3xl font-bold text-center sm:text-left"
         ref={targetRef}

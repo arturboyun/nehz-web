@@ -14,7 +14,6 @@ export default async function ServerDomainContent() {
   return (
     <div className="flex flex-col gap-[24]px items-center sm:items-start">
       <Title config={config} />
-
       <div className="flex gap-4 items-center flex-col sm:flex-row">
         {config.social?.telegram && (
           <a
