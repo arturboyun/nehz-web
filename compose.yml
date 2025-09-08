@@ -3,8 +3,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.bun
-    expose:
-      - 3000
+    # expose:
+    #   - 3000
     labels:
       - traefik.swarm.network=dokploy-network
       - traefik.docker.network=dokploy-network
